@@ -1,0 +1,7 @@
+{
+  "name": "PM-AppListaHeroes-Ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

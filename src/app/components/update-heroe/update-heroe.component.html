@@ -1,0 +1,116 @@
+<section>
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-title>Editar Héroe</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="dismissModal()">Cancelar</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content fullscreen>
+    <ion-card>
+      <ion-card-content>
+        <form #heroeForm="ngForm" (ngSubmit)="alertUpdate(heroeForm)">
+          <ion-item>
+            <ion-label position="floating">Foto</ion-label>
+            <ion-input
+              placeholder="Ingrese la foto"
+              type="text"
+              [(ngModel)]="heroe.foto"
+              name="foto"
+              #foto="ngModel"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Nombre</ion-label>
+            <ion-input
+              placeholder="Ingrese el nombre"
+              type="text"
+              [(ngModel)]="heroe.nombre"
+              name="nombre"
+              #nombre="ngModel"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Alias</ion-label>
+            <ion-input
+              placeholder="Ingrese el alias"
+              type="text"
+              [(ngModel)]="heroe.alias"
+              name="alias"
+              #alias="ngModel"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Fecha de nacimiento</ion-label>
+            <ion-input
+              value="{{ fecha | date: 'dd-MM-yyyy' }}"
+              id="date"
+              [ngModel]="heroe.fechaNacimiento | date: 'dd-MM-yyyy'"
+              name="fechaNacimiento"
+              #fechaNacimiento="ngModel"
+            ></ion-input>
+            <ion-popover trigger="date" size="cover">
+              <ng-template>
+                <ion-datetime
+                  presentation="date"
+                  [(ngModel)]="fecha"
+                  name="fecha"
+                  locale="sl-SI"
+                ></ion-datetime>
+              </ng-template>
+            </ion-popover>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Nacionalidad</ion-label>
+            <ion-input
+              placeholder="Ingrese la nacionalidad"
+              type="text"
+              [(ngModel)]="heroe.nacionalidad"
+              name="nacionalidad"
+              #nacionalidad="ngModel"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Residencia</ion-label>
+            <ion-input
+              placeholder="Ingrese la residencia"
+              type="text"
+              [(ngModel)]="heroe.residencia"
+              name="residencia"
+              #residencia="ngModel"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Nivel</ion-label>
+            <ion-input
+              placeholder="Ingrese el nivel 1-5"
+              type="number"
+              [(ngModel)]="heroe.nivel"
+              name="nivel"
+              #nivel="ngModel"
+              required
+              [min]="1"
+              [max]="5"
+            ></ion-input>
+          </ion-item>
+          <ion-button
+            type="submit"
+            expand="block"
+            fill="clear"
+            shape="round"
+            [disabled]="heroeForm.invalid"
+          >
+            Editar
+          </ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</section>

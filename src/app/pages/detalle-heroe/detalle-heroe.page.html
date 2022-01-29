@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button routerLink="/heroes"> </ion-back-button>
+    </ion-buttons>
+    <ion-title>{{heroe.nombre}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-fab horizontal="end" vertical="top" slot="fixed" edge>
+    <ion-fab-button>
+      <ion-icon name="options"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list>
+      <ion-fab-button color="tertiary" (click)="updateHeroe()">
+        <ion-icon name="create"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="danger" (click)="alertDelete()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Información de {{heroe.nombre}} - {{heroe.alias}}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid fixed>
+        <ion-card>
+          <ion-img [src]="heroe.foto"> </ion-img>
+          <ion-card-header>
+            <ion-card-title> {{heroe.nombre}} </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="6">
+                <div>
+                  <ion-text color="tertiary"><h2>Alias</h2></ion-text>
+                  <ion-text color="dark"> {{heroe.alias}} </ion-text>
+                </div>
+                <hr />
+                <div>
+                  <ion-text color="tertiary">
+                    <h2>Fecha de nacimiento</h2>
+                  </ion-text>
+                  <ion-text color="dark">
+                    {{heroe.fechaNacimiento | date: 'dd-MM-yyyy' }}
+                  </ion-text>
+                </div>
+                <hr />
+                <div>
+                  <ion-text color="tertiary"><h2>Nacionalidad</h2></ion-text>
+                  <ion-text color="dark"> {{heroe.nacionalidad }} </ion-text>
+                </div>
+                <hr />
+                <div>
+                  <ion-text color="tertiary"><h2>Residencia</h2></ion-text>
+                  <ion-text color="dark"> {{heroe.residencia}} </ion-text>
+                </div>
+                <hr />
+                <div>
+                  <ion-text color="tertiary"><h2>Nivel</h2></ion-text>
+                  <ngb-rating
+                    [max]="5"
+                    [(rate)]="heroe.nivel"
+                    [readonly]="true"
+                  ></ngb-rating>
+                </div>
+              </ion-col>
+              <ion-col size="6">
+                <ion-text color="tertiary">
+                  <h2>Poderes</h2>
+                </ion-text>
+                <ion-list>
+                  <ion-item
+                    *ngFor="let poder of heroe.poderes; let index = index"
+                  >
+                    <ion-icon
+                      name="heart"
+                      class="ion-padding-end"
+                      color="danger"
+                    ></ion-icon>
+                    <ion-label>{{poder}}</ion-label>
+                    <ion-button
+                      color="primary"
+                      fill="clear"
+                      shape="round"
+                      (click)="updatePoder(index, poder)"
+                    >
+                      <ion-icon slot="icon-only" name="create"></ion-icon>
+                    </ion-button>
+                  </ion-item>
+                </ion-list>
+                <div>
+                  <form #poderForm="ngForm" (ngSubmit)="addPoder(poderForm)">
+                    <ion-item>
+                      <ion-input
+                        placeholder="Ingrese un nuevo poder"
+                        type="text"
+                        [(ngModel)]="poder"
+                        name="poder"
+                        required
+                      ></ion-input>
+                    </ion-item>
+                    <ion-button
+                      type="submit"
+                      expand="block"
+                      fill="clear"
+                      shape="round"
+                      [disabled]="poderForm.invalid"
+                    >
+                      Añadir
+                    </ion-button>
+                  </form>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

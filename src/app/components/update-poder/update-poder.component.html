@@ -1,0 +1,39 @@
+<section>
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-title>Editar Poder</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="dismissModal()">Cancelar</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content fullscreen>
+    <ion-card>
+      <ion-card-content>
+        <div>
+          <form #poderForm="ngForm" (ngSubmit)="alertUpdate(poderForm)">
+            <ion-item>
+              <ion-input
+                placeholder="Edite el poder"
+                type="text"
+                [(ngModel)]="poder"
+                name="poder"
+                required
+              ></ion-input>
+            </ion-item>
+            <ion-button
+              type="submit"
+              expand="block"
+              fill="clear"
+              shape="round"
+              [disabled]="poderForm.invalid"
+            >
+              Editar
+            </ion-button>
+          </form>
+        </div>
+      </ion-card-content>
+    </ion-card></ion-content
+  >
+</section>

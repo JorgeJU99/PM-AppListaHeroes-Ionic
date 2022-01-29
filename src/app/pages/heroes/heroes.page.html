@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="flash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Héroes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item
+      *ngFor="let heroe of heroes"
+      [routerLink]="['/heroes/detalle-heroe', heroe.idHeroe]"
+    >
+      <ion-avatar slot="start">
+        <ion-img [src]="heroe.foto"> </ion-img>
+      </ion-avatar>
+      <ion-label> {{heroe.alias}} </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="tertiary" (click)="addHeroe()" type="button">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

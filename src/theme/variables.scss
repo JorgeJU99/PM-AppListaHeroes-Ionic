@@ -1,0 +1,12 @@
+hr {
+  background-color: rgb(94, 67, 245);
+}
+
+ngb-rating {
+  color: #ffd700;
+  border: black;
+  font-size: xx-large;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
