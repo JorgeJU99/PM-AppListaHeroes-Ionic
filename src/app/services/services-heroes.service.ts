@@ -51,6 +51,32 @@ export class ServicesHeroesService {
       ],
       nivel: 5,
     },
+    {
+      idHeroe: '4',
+      foto: 'https://as01.epimg.net/meristation/imagenes/2019/10/08/noticias/1570522585_909312_1570522675_noticia_normal.jpg',
+      nombre: 'Robert Bruce Banner',
+      alias: 'Hulk',
+      fechaNacimiento: new Date('1969-12-18'),
+      nacionalidad: 'Estadounidense',
+      residencia: 'Augusta Hogan',
+      poderes: [
+        'Enorme fuerza y vigor superhumanos',
+        'Reisitencia a las heridas',
+        'Habilidad de saltar varios kilómetros de un solo impulso',
+      ],
+      nivel: 3,
+    },
+    {
+      idHeroe: '5',
+      foto: 'https://i0.wp.com/hipertextual.com/wp-content/uploads/2022/01/batman-michael-keaton.jpg?fit=1200%2C945&ssl=1',
+      nombre: 'Bruce Wayne',
+      alias: 'Batman',
+      fechaNacimiento: new Date('1915-04-17'),
+      nacionalidad: 'Estadounidense',
+      residencia: 'Gotham City',
+      poderes: ['Fuerza', 'Inteligencia', 'Armamento'],
+      nivel: 4,
+    },
   ];
 
   constructor() {}

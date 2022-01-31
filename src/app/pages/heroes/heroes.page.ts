@@ -21,6 +21,7 @@ export class HeroesPage implements OnInit {
 
   getHeroes() {
     this.heroes = this.servicesHeroesService.getHeroes();
+    console.log(this.heroes);
   }
 
   ionViewWillEnter() {
